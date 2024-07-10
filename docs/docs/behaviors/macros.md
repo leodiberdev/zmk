@@ -18,7 +18,6 @@ A macro definition looks like:
 / {
     macros {
         zed_em_kay: zed_em_kay {
-            label = "ZM_zed_em_kay";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -224,7 +223,7 @@ Common examples are enabling one or more modifiers when the layer is active, or 
 
 To achieve this, a combination of a 0ms wait time and splitting the press and release between a `&macro_pause_for_release` is used:
 
-#### Layer + Modifier
+#### Layer + modifier
 
 ```dts
 /**
@@ -239,7 +238,6 @@ To achieve this, a combination of a 0ms wait time and splitting the press and re
  *  `&lm NUM_LAYER LSHIFT`
  */
 lm: lm {
-    label = "LAYER_MOD";
     compatible = "zmk,behavior-macro-two-param";
     wait-ms = <0>;
     tap-ms = <0>;
@@ -258,7 +256,7 @@ lm: lm {
 };
 ```
 
-#### Layer + Underglow Color
+#### Layer + underglow color
 
 To trigger a different underglow when the macro is pressed, and when it is released, we use the macro "press" activation mode whenever triggering the `&rgb_ug` behavior:
 
@@ -323,7 +321,6 @@ This can be used instead of a complete macro definition. During the firmware bui
 ```dts
     my_zero_param_macro: my_zero_param_macro {
         compatible = "zmk,behavior-macro";
-        label = "ZM_my_macro";
         #binding-cells = <0>;
         wait-ms = <30>;
         tap-ms = <40>;
